@@ -12,18 +12,22 @@
     --color-4: #be9063;
     --color-5: #A4978e;
 }
+
 html, body {
     height: 100%;
-    background: var(--color-5);
     background: linear-gradient(90deg, var(--color-2) 0%, var(--color-3) 49%, var(--color-2) 100%);
-
 }
+
 body {
     margin: 0;
     padding: 0;
 }
+
 main {
-    width: 800px;
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    min-width: 320px;
     margin: 0 auto;
     height: 100%;
     background-color: var(--color-2);
@@ -32,20 +36,58 @@ main {
     color: var(--color5);
 }
 
+@media only screen and (max-width: 800px) {
+    main {
+        width: 100%;
+    }
+}
+
+main:hover {
+    overflow: auto;
+}
+
+@media screen and (max-width: 750px) {
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        text-align: right;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        float: left;
+    }
+}
 h1 {
     margin-top: 0;
     background-color: var(--color-1);
     padding: 1em;
 
 }
-h1, h2,h3 {
+
+h1, h2, h3, h4, h5 {
     text-align: center;
     text-transform: capitalize;
-    color: var(--color3)
+    color: var(--color3);
 }
 
 ul li {
-    text-transform: capitalize;
     margin: 0;
     padding: 0 !important;
     position: relative;
@@ -54,18 +96,24 @@ ul li {
     margin-bottom: .5em;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 a {
-    display: block;
     /*text-align: center;*/
     /*margin: 0 auto;*/
     color: var(--color1);
 }
-a:visited{
-    color: var(--color-3)
+
+a:visited {
+    color: var(--color-5);
 }
+
 a:hover {
     color: var(--color4);
 }
+
 p {
     padding-left: 1em;
     padding-right: 1em;
@@ -80,3 +128,65 @@ p {
     display: flex;
     flex-direction: column;
 }
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: left;
+    background-color: var(--color-1);
+    color: var(--color3);
+}
+
+.fold * {
+    display: none !important;
+}
+
+.fold h3 {
+    display: block !important;
+}
+
+.code {
+    background-color: moccasin;
+    color: black;
+}
+
+.code {
+    position: relative;
+    display: block;
+    border-bottom: 1px dotted black;
+    font-size: large;
+}
+
+.code .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.code:hover .tooltiptext {
+    visibility: visible;
+}
+
+button:hover, a:hover {
+    box-shadow: 1px 3px 6px 0px white !important;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+
