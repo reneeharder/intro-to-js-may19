@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tip Calculator</title>
+	<style>
+		[type]{
+			font-size:40px;
+		}
+		.result{
+			font-size:40px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text">
+	<h2 class="result"></h2>
+	<h2 class="slice"></h2>
+	<h3></h3>
+	<script>
+		const textInput = document.querySelector('[text]');
+		const resultDiv = document.querySelector('.result');
+		const totalDiv = document.querySelector('h3');
+		const partySize = document.querySelector('[type=number]');
+		const sliceResult = document.querySelector('[type=number]');
+		console.log(textInput, resultDiv);
+
+		textInput.addEventListener('input', function(){
+			const value = parseInt(this.value);
+			console.log(value);
+			if(isNaN(value)){
+				console.log('isNaN is true')
+			} else {
+				console.log('isNaN is false. do some work');
+				const tip = (value * .15);
+				const tipToFixed = 
+				resultDiv.innerHTML = tip;
+				totalDiv.innerHTML = '$' + totalToFixed;
+				if(partySize.value){
+					slice.Result.innerHTML = '$${'
+
+				}
+			}
+		})
+	</script>
+</body>
+</html>
