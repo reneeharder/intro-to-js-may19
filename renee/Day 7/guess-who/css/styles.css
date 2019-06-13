@@ -1,0 +1,16 @@
+html {
+    background-color: green;
+}
+
+div.container {
+    height: 404px;
+    width: 640px;
+    border: 1px black solid; 
+    background: url("../char.png") no-repeat;
+    background-position: -50px -6px;
+}
+
+.char {
+    border: 1px solid black;
+    display: inline-block;
+}
