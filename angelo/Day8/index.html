@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+body *{
+	font-size:3em;
+}
+
+
+	</style>
+</head>
+<body>
+<div></div>
+
+<input type="text">
+<input type="text">
+<button>Click</button>
+
+<script>
+	const div = document.querySelector('div');
+	const inputs = document.querySelectorAll('input');
+
+	const button = document.querySelector('button');
+
+	button.addEventListener('click', function(){
+		const input1value = inputs[0].value;
+		const input2value = inputs[1].value;
+
+		div.style[input1value] = input2value;
+	});
+
+</script>
+	
+</body>
+</html>
