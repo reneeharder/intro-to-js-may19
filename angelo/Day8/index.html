@@ -26,10 +26,12 @@ body *{
 	const button = document.querySelector('button');
 
 	button.addEventListener('click', function(){
-		const input1value = inputs[0].value;
-		const input2value = inputs[1].value;
+		const input1Value = inputs[0].value;
+		const input2Value = inputs[1].value;
 
-		div.style[input1value] = input2value;
+
+		if (input1Value)
+		div.style[input1Value] = input2Value;
 	});
 
 </script>
