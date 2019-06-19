@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+        body, html {
+            height: 100%;
+        }
+        .map {
+            height: 100%;
+            background-image: url("map.jpg");
+            position: relative;
+        }
+        body * {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class ="map">
+        <input type ="text">
+        <span class="hulk">Hulk Ride</span>
+    </div>
+
+    <script>
+    const rides = [{name: 'hulk', x: 500, y: 500}]
+    rides.forEach( ride => {
+        const span = document.querySelector(`.${ride.name}`);
+        span.style.display = `absolute`;
+        span.style.top = `${ride.y}px`;
+        span.style.left = ride.y + `px`;
+    })
+    
+    </script>
+    
+</body>
+</html>
