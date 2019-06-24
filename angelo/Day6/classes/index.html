@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Classes</title>
+	<style>
+		.head{
+			display:inline-block;
+			height:200px;
+			width:200px;
+			background-color: yellow;
+			border-radius: 50%;
+			position: relative;
+		}
+		.lefteye, .rightEye{
+			background-color: ;
+			height:40px;
+			width:40px;
+			position:absolute;
+			top:calc(33% - 20px);
+			left:calc(33% - 20px);
+			border-radius: 50%;
+		}
+
+		.leftEye{
+			top:calc(33% - 20px);
+			left:calc(33% - 20px);
+		}
+		.rightEye{
+			top:calc(33% - 20px);
+			left:calc(33% - 20px);
+		}
+		.mouth{
+			background-color: black;
+			height:20px;
+			width:80px;
+			position: absolute;
+			top: 66%;
+			left:calc(50% - 40px);
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		class Face(){
+			container;
+			leftEye;
+			rightEye;
+			mouth;
+			constructor{
+				this.head = document.createElement('div');
+				this.leftEye = document.createElement('div');
+				this.rightEye = document.createElement('div');
+				this.mouth = document.createElement('div');
+
+				this.head.classList.add('head');
+				this.leftEye.classList.add('leftEye');
+				this.rightEye.classList.add('rightEye');
+				this.mouth.classList.add('mouth');
+
+				document.body.appendchild(this.head);
+				this.head.appendchild(this.leftEye);
+			}
+		}
+
+		new Face();
+	</script>
+</body>
+</html>

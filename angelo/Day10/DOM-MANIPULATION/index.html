@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+	<script>
+		const pages = [];
+
+		function createButton(html, listner){
+			const button = document.createElement('button');
+			button.innerHTML = html;
+			button.addEventListener('click', listener);
+			document.body.appendChild(button);
+		}
+
+		createButton('-->', function(){
+			console.log(document.body.querySelector('div'));
+
+		});
+
+		function createPage(html){
+			const page = document.createElement('div');
+			page.innerHTML = html;
+			pages.push(page);
+		}
+
+		for(let i = 0; i < 100, i++){
+			createPage('page number ${i}')
+		}
+	</script>
+	
+</body>
+</html>
