@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM manipulation</title>
+
+    <style>
+        .active {
+            background: lime;
+            color: white;
+            border: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const pages = [];
+    var myVar = 'this is a really long thing that i dont want to have to write a bunch of times unless i have to then i will';
+
+    function createButton(html, listener) {
+        const button = document.createElement('button');
+        button.innerHTML = html;
+        button.addEventListener('click', listener);
+        document.body.appendChild(button);
+    }
+    createButton('<--', function () {
+        const currentPage =document.body.querySelector('.page');
+        const index = pages.indexOf(currentPage);
+        if (index > 0) {
+            currentPage.remove();
+            document.body.appendChild(pages[index - 1])
+        }
+        updateText()
+    });
+    createButton('-->', function () {
+        const currentPage =document.body.querySelector('.page');
+        const index = pages.indexOf(currentPage);
+        if (index < pages.length -1) {
+            currentPage.remove();
+            document.body.appendChild(pages[index + 1])
+        }
+        updateText();
+    });
+
+    createButton('home', loadPage);
+    createButton('profile', loadPage);
+    createButton('about', loadPage);
+    createButton('contact', loadPage);
+
+
+    function createPage(html) {
+        const page = document.createElement('div');
+        page.classList.add('page');
+        page.innerHTML = html;
+        pages.push(page);
+    }
+
+    const pagesConfig = [
+        {html: '<h1>Home</h1>', name: 'home'},
+        {html: '<h1>About</h1>', name: 'about'},
+        {html: '<h1>Contact</h1>', contact: 'contact', name: 'contact'},
+        {html: `
+            <h1 class="text">myVar</h1>
+            <p>This is a little description of me.</p>
+            <span class="text">myVar</span>
+            <p class="text">myVar</p>
+        `, name: 'profile'}
+        ];
+
+    pagesConfig.forEach( function (item) {
+        createPage(item.html)
+    });
+    for( let i =0; i < 5; i++ ) {
+        createPage(`page number ${i}`);
+    }
+    document.body.appendChild(pages[0]);
+
+    function findPage(name) {
+       const page = pagesConfig.find( function (item) {
+            return (item.name === name);
+        });
+       console.log(page);
+       const index = pagesConfig.indexOf(page);
+       return pages[index];
+    }
+
+
+    function loadPage() {
+            const name = this.innerText;
+            console.log(name);
+            const page = findPage(name);
+            const currentPage =document.body.querySelector('.page');
+            currentPage.remove();
+            document.body.appendChild(page);
+            updateText();
+    }
+
+    function updateText() {
+        const list = document.querySelectorAll('.text');
+        list.forEach( item => {
+            const varToReplace = item.innerHTML;
+            console.log('varToReplace', varToReplace);
+            console.log(this);
+            item.innerHTML = this[varToReplace];
+        })
+    }
+
+    document.querySelectorAll('button').forEach(function (button) {
+
+        button.addEventListener('click', function () {
+            const active = document.querySelector('.active');
+            if (active) {
+                active.classList.remove('active');
+            }
+            this.classList.add('active');
+        })
+    })
+</script>
+
+</body>
+</html>

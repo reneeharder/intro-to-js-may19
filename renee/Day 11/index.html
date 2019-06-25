@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Things I've Learned</title>
+</head>
+
+<style>
+        .container {
+            width: 300px;
+        }
+</style>
+
+
+<body>
+<div class="container">
+    <script>
+        const createElement = function (kind, html) {
+            const el = document.createElement(kind)
+            el.innerHTML = html;
+            return el;
+        }    
+            
+        for( let i = 0; i < 10; i++) {
+            const el = createElement('p', i);
+            el.style.backgroundColor = 'blue';
+            el.style.fontSize = '2em';
+            el.style.color = 'white';
+            console.log(el);
+            document.body.appendChild(el);
+        }
+        
+    </script>
+</div>
+
+
+
+
+
+</body>
+</html>
